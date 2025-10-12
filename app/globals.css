@@ -2,7 +2,7 @@
   --background: #fbfbfb;
   --background-secondary: #e8f9ff;
   --color-2: #c4d9ff;
-  --color-3: #5c3e94;
+  --color-3: rgb(92, 62, 148);
   --foreground: #424242;
 }
 
@@ -48,6 +48,33 @@ a {
   * {
     font-size: 12px;
   }
+}
+
+/* TITLE STYLES */
+
+.primary-title {
+  font-style: italic;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.secondary-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-3);
+  font-style: italic;
+}
+
+.tertiary-title {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.paragraph {
+  font-size: 1rem;
+  font-style: italic;
+  text-align: center;
+  font-weight: 500;
 }
 
 /* HEADER STYLES */
