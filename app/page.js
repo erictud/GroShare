@@ -27,10 +27,7 @@ export default function Home() {
           </p>
           <div className={styles.hero_section__button_container}>
             <Button>
-              <Link href="auth">Create account</Link>
-            </Button>
-            <Button>
-              <Link href="auth">Login</Link>
+              <Link href="auth">Start now or log in</Link>
             </Button>
           </div>
         </div>

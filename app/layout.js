@@ -30,7 +30,10 @@ export default function RootLayout({ children }) {
               width={32}
               height={32}
             />
-            <h3>groShare</h3>
+            <h3>
+              <span className="col1">gro</span>
+              <span className="col2">Share</span>
+            </h3>
           </div>
         </header>
         <main>{children}</main>

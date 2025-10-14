@@ -1,0 +1,39 @@
+.input_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.input_container_password div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input_container_password div img {
+  width: 1.5rem;
+  height: auto;
+  cursor: pointer;
+}
+
+.input_container_password div input {
+  width: 23rem;
+}
+
+.input_container label {
+  font-size: 1.2rem;
+}
+
+.input_container input {
+  background-color: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--foreground);
+  width: 25rem;
+  height: 2rem;
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.2rem;
+}

@@ -1,7 +1,7 @@
 :root {
   --background: #fbfbfb;
-  --background-secondary: #e8f9ff;
-  --color-2: #c4d9ff;
+  --background-secondary: #f1faff47;
+  --color-2: #528eff;
   --color-3: rgb(92, 62, 148);
   --foreground: #424242;
 }
@@ -68,6 +68,14 @@ a {
 .tertiary-title {
   font-size: 1.6rem;
   font-weight: 500;
+}
+
+.col1 {
+  color: var(--color-3);
+}
+
+.col2 {
+  color: var(--color-2);
 }
 
 .paragraph {
