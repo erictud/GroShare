@@ -1,10 +1,17 @@
 import { useState } from "react";
+import Image from "next/image";
 import styles from "./../styles/styles_components/FormInput.module.css";
+import attentionCircleSvg from "./../../public/attention-circle.svg";
 import showPasswordSvg from "./../../public/showPassword.svg";
 import hidePasswordSvg from "./../../public/hidePassword.svg";
-import Image from "next/image";
 
-export default function FormInput({ type, label, state, setState }) {
+export default function FormInput({
+  type,
+  label,
+  state,
+  setState,
+  requirment = "",
+}) {
   const [showPassowrd, setShowPassword] = useState(false);
 
   if (type == "password") {
@@ -26,6 +33,12 @@ export default function FormInput({ type, label, state, setState }) {
             src={showPassowrd == true ? hidePasswordSvg : showPasswordSvg}
           />
         </div>
+        {requirment && (
+          <div className={styles.input_container_attention}>
+            <Image src={attentionCircleSvg} alt="Attention circle" />
+            <p>{requirment}</p>
+          </div>
+        )}
       </div>
     );
   }
@@ -39,6 +52,12 @@ export default function FormInput({ type, label, state, setState }) {
         onChange={(e) => setState(e.currentTarget.value)}
         value={state}
       />
+      {requirment && (
+        <div className={styles.input_container_attention}>
+          <Image src={attentionCircleSvg} alt="Attention circle" />
+          <p>{requirment}</p>
+        </div>
+      )}
     </div>
   );
 }

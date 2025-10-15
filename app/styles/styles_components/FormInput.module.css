@@ -37,3 +37,18 @@
   padding: 0.5rem 0.8rem;
   border-radius: 0.2rem;
 }
+
+.input_container_attention {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+}
+
+.input_container_attention > img {
+  height: 0.6rem !important;
+  width: auto !important;
+}
+
+.input_container_attention p {
+  font-size: 0.6rem;
+}
