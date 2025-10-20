@@ -3,7 +3,7 @@
   --background-secondary: #efeed511;
   --color-2: #528eff;
   --color-3: rgb(92, 62, 148);
-  --foreground: #424242;
+  --foreground: rgb(66, 66, 66);
 }
 
 /* @media (prefers-color-scheme: dark) {

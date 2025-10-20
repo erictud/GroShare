@@ -6,6 +6,7 @@ import styles from "./../styles/authPage.module.css";
 import FormInput from "../components/FormInput";
 import Button from "../components/Button";
 import AlertPrompt from "../components/AlertPrompt";
+import LoadingOverlay from "../components/LoadingOverlay";
 
 const noError = {
   exists: false,
@@ -14,17 +15,14 @@ const noError = {
 };
 
 export default function Home() {
-  let myTimeout;
+  // loading state
   const [method, setMethod] = useState("login");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(noError);
-
-  const clearErrorTimeout = () => {
-    myTimeout = setTimeout(() => setError(noError), 5000);
-  };
+  const [loading, setLoading] = useState(false);
 
   const submitForm = () => {
     setError(noError);
@@ -83,6 +81,9 @@ export default function Home() {
         return;
       }
     }
+
+    // Everything is fine, now we send the data
+    setLoading(true);
   };
 
   return (
@@ -92,6 +93,15 @@ export default function Home() {
           type="error"
           title={error.title}
           message={error.description}
+        />
+      )}
+      {loading && (
+        <LoadingOverlay
+          message={
+            method == "login"
+              ? "Logging in, please wait..."
+              : "Creating your account, please wait..."
+          }
         />
       )}
       <Form submitEvent={submitForm}>
