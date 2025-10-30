@@ -18,13 +18,17 @@ export default function Home() {
   // loading state
   const [method, setMethod] = useState("login");
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("useruser");
+  const [password, setPassword] = useState("WRWHrhwrhhrwrh");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(noError);
   const [loading, setLoading] = useState(false);
 
-  const submitForm = () => {
+  function clearErrorTimeout() {
+    setTimeout(() => setError(noError), 3000);
+  }
+
+  async function submitForm() {
     setError(noError);
 
     if (method == "login") {
@@ -84,15 +88,39 @@ export default function Home() {
 
     // Everything is fine, now we send the data
     setLoading(true);
-  };
+    try {
+      const request = await fetch("/api/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          method: method,
+          credentials: { email, username, email, password },
+        }),
+      });
+
+      if (!request.ok) {
+        const data = await request.json();
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      setError({
+        exists: true,
+        title: "Unexpected error",
+        description: error.message,
+      });
+      clearErrorTimeout();
+    }
+
+    setLoading(false);
+  }
 
   return (
     <div>
       {error.exists == true && (
         <AlertPrompt
           type="error"
-          title={error.title}
-          message={error.description}
+          title={error.title || ""}
+          message={error.description || ""}
         />
       )}
       {loading && (
